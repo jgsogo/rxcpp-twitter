@@ -1,4 +1,6 @@
 
+#pragma once
+
 #include <string>
 #include <string_view>
 
@@ -10,15 +12,19 @@ namespace rx::twitter {
     // Contains the information from a single tweet
     class Tweet {
     public:
+        Tweet(const Tweet&);
+        Tweet(Tweet&&); // = default;
+        Tweet& operator=(Tweet);
+
         static Tweet create(nlohmann::json tweet);
         ~Tweet();
 
         std::string_view text() const;
+        time_t timestamp() const;
     protected:
         explicit Tweet(nlohmann::json tweet);
-        explicit Tweet(const Tweet&) = delete;
-        Tweet(Tweet&&) = default;
-        Tweet& operator=(Tweet&&) = default;
+
+        //Tweet& operator=(Tweet&&) = default;
 
     protected:
         struct Impl;

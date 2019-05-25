@@ -15,10 +15,18 @@ namespace rx::twitter {
         explicit Impl(nlohmann::json tw) : tweet{std::move(tw)} {}
         nlohmann::json tweet;
         std::optional<std::string> text;
+        std::optional<time_t> timestamp;
     };
 
-    Tweet::Tweet(nlohmann::json tweet) : pImpl{std::make_unique<Impl>(std::move(tweet))} {
+    Tweet::Tweet(nlohmann::json tweet) : pImpl{std::make_unique<Impl>(std::move(tweet))} {}
 
+    Tweet::Tweet(const Tweet& tw) : pImpl{std::make_unique<Impl>(tw.pImpl->tweet)} {}
+
+    Tweet::Tweet(Tweet&& tw) : pImpl(std::move(tw.pImpl)) {}
+
+    Tweet& Tweet::operator=(Tweet tw) {
+        pImpl = std::move(tw.pImpl);
+        return *this;
     }
 
     Tweet::~Tweet() {}
@@ -44,6 +52,14 @@ namespace rx::twitter {
             }
             pImpl->text = value;
             return value;
+        }});
+    }
+
+    time_t Tweet::timestamp() const {
+        return pImpl->timestamp.value_or(utils::Lazy{[=]()->time_t {
+            auto t = std::stoll(pImpl->tweet["timestamp_ms"].get<std::string>());
+            pImpl->timestamp = t;
+            return t;
         }});
     }
 }

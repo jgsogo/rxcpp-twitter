@@ -1,4 +1,6 @@
 
+#pragma once
+
 #include <memory>
 #include <vector>
 #include <spdlog/logger.h>
