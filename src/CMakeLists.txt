@@ -7,7 +7,7 @@ find_package(rxcpp REQUIRED)
 find_package(jsonformoderncpp REQUIRED)
 find_package(spdlog REQUIRED)
 
-set(SOURCES tweet.cpp)
+set(SOURCES tweet.cpp logger.cpp)
 set(HEADERS ../include/rxcpp/twitter/tweet.h)
 
 add_library(rxcpp_twitter ${SOURCES} ${HEADERS})

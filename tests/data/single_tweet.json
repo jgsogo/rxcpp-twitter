@@ -1,5 +1,5 @@
 {
-    "text": "RT @PostGradProblem: In preparation for the NFL lockout, I will be spending twice as much time analyzing my fantasy baseball team during ...", 
+    "text": "single_tweet::text", 
     "truncated": true, 
     "in_reply_to_user_id": null, 
     "in_reply_to_status_id": null, 

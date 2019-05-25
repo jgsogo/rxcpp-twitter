@@ -57,7 +57,7 @@ class RxcppTwitter(ConanFile):
         cmake.build()
         if self.options.build_tests:
             self.output.info("Running tests for '{}'".format(self.name))
-            cmake.test(target="tests")
+            cmake.test(target="test")
 
     def package(self):
         cmake = self._configure_cmake()

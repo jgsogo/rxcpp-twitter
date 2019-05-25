@@ -5,7 +5,9 @@
 #include <spdlog/spdlog.h>
 
 #include "lazy.h"
+#include "rxcpp/twitter/logger.h"
 
+static auto logger = rx::twitter::get_logger();
 
 namespace twitter {
 
@@ -29,7 +31,7 @@ namespace twitter {
     // Members are returned lazy ;)
     std::string_view Tweet::text() const {
         return pImpl->text.value_or(utils::Lazy{[=]()->std::string {
-            spdlog::debug("Lazy evaluation of Tweet::text");
+            logger->debug("Lazy evaluation of Tweet::text");
             std::string value{};
             if (!!pImpl->tweet.count("extended_tweet")) {
                 auto ex = pImpl->tweet["extended_tweet"];
