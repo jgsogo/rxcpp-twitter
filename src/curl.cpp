@@ -1,5 +1,5 @@
 
-#include "rx/twitter/rxcurl.h"
+#include "rx/utils/curl.h"
 
 namespace rxcurl {
 

@@ -8,7 +8,7 @@ find_package(jsonformoderncpp REQUIRED)
 find_package(spdlog REQUIRED)
 find_package(oauth REQUIRED)
 
-set(SOURCES tweet.cpp logger.cpp stream.cpp request.cpp parse.cpp split.cpp)
+set(SOURCES tweet.cpp logger.cpp stream.cpp request.cpp parse.cpp split.cpp curl.cpp)
 set(HEADERS ../include/rx/twitter/tweet.h)
 
 add_library(rxcpp_twitter ${SOURCES} ${HEADERS})

@@ -3,7 +3,7 @@
 
 #include <rxcpp/rx.hpp>
 
-#include "rx/twitter/rxcurl.h"
+#include "rx/utils/curl.h"
 
 
 namespace rx::twitter {
