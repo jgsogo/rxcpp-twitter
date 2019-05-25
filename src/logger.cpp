@@ -3,7 +3,7 @@
 
 #include <spdlog/sinks/stdout_color_sinks.h>
 
-namespace rx { namespace twitter {
+namespace rx::twitter {
     static const std::string logger_name = "rx_twitter";
 
     std::shared_ptr<spdlog::logger> get_logger() {
@@ -14,12 +14,12 @@ namespace rx { namespace twitter {
         return logger;
     }
 
-    std::shared_ptr<spdlog::logger> setup_logger(std::vector<spdlog::sink_ptr> sinks) {
+    std::shared_ptr<spdlog::logger> setup_logger(std::vector<spdlog::sink_ptr>& sinks) {
         auto logger = get_logger();
-        for (auto it: sinks) {
+        for (auto& it: sinks) {
             logger->sinks().push_back(it);
         }
         return logger;
     }
 
-}}
+}

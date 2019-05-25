@@ -14,7 +14,7 @@ TEST_CASE("Tweet object stores text in cache", "[twitter::tweet]") {
     auto& os = get_ostream_sink();
 
     auto tweet_json = nlohmann::json::parse(ifs);
-    auto tweet = twitter::Tweet::create(std::move(tweet_json));
+    auto tweet = rx::twitter::Tweet::create(std::move(tweet_json));
 
     SECTION("text is evaluated first time") {
         REQUIRE(tweet.text() == "single_tweet::text");

@@ -9,10 +9,10 @@
 
 static auto logger = rx::twitter::get_logger();
 
-namespace twitter {
+namespace rx::twitter {
 
     struct Tweet::Impl {
-        Impl(nlohmann::json tw) : tweet{std::move(tw)} {}
+        explicit Impl(nlohmann::json tw) : tweet{std::move(tw)} {}
         nlohmann::json tweet;
         std::optional<std::string> text;
     };

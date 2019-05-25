@@ -5,7 +5,7 @@
 #include <nlohmann/json.hpp>
 
 
-namespace twitter {
+namespace rx::twitter {
 
     // Contains the information from a single tweet
     class Tweet {
@@ -15,8 +15,8 @@ namespace twitter {
 
         std::string_view text() const;
     protected:
-        Tweet(nlohmann::json tweet);
-        Tweet(const Tweet&) = delete;
+        explicit Tweet(nlohmann::json tweet);
+        explicit Tweet(const Tweet&) = delete;
         Tweet(Tweet&&) = default;
         Tweet& operator=(Tweet&&) = default;
 
