@@ -1,7 +1,7 @@
 
 #include "rx/utils/curl.h"
 
-namespace rxcurl {
+namespace rx::utils {
 
     rxcurl create_rxcurl() {
         rxcurl r{std::make_shared<rxcurl_state>()};

@@ -5,7 +5,7 @@
 #include <rxcpp/rx.hpp>
 
 
-namespace rxcurl {
+namespace rx::utils {
 
     struct rxcurl_state
     {

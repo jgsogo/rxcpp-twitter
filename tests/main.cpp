@@ -11,7 +11,7 @@ int main( int argc, char* argv[] ) {
     auto ostream_sink = std::make_shared<spdlog::sinks::ostream_sink_mt>(oss);
     ostream_sink->set_pattern("[ostream] %v");
     std::vector<spdlog::sink_ptr> sinks{ostream_sink};
-    auto logger = rx::twitter::setup_logger(sinks);
+    auto logger = rx::utils::setup_logger(sinks);
     logger->set_level(spdlog::level::debug);
     
     int result = Catch::Session().run( argc, argv );

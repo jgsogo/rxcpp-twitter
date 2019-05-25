@@ -3,7 +3,8 @@
 
 #include <spdlog/sinks/stdout_color_sinks.h>
 
-namespace rx::twitter {
+namespace rx::utils {
+
     static const std::string logger_name = "rx_twitter";
 
     std::shared_ptr<spdlog::logger> get_logger() {

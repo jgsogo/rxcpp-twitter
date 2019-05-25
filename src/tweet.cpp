@@ -7,7 +7,7 @@
 #include "lazy.h"
 #include "rx/utils/logger.h"
 
-static auto logger = rx::twitter::get_logger();
+static auto logger = rx::utils::get_logger();
 
 namespace rx::twitter {
 

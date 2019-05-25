@@ -6,7 +6,7 @@
 
 namespace rx::twitter {
 
-    rxcpp::observable<Tweet> stream(rxcpp::observe_on_one_worker tweetthread, rxcurl::rxcurl factory,
+    rxcpp::observable<Tweet> stream(rxcpp::observe_on_one_worker tweetthread, utils::rxcurl factory,
                                     std::string url, std::string method,
                                     std::string tw_consumer_key, std::string tw_consumer_secret,
                                     std::string tw_access_token, std::string tw_access_token_secret) {

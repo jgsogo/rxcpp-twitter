@@ -18,21 +18,21 @@ namespace rx::twitter {
                    rxcpp::operators::timeout(std::chrono::seconds(90), tweetthread) |
                    rxcpp::operators::on_error_resume_next([=](std::exception_ptr ep) -> rxcpp::observable<std::string> {
                        try {rethrow_exception(ep);}
-                       catch (const rxcurl::http_exception& ex) {
+                       catch (const utils::http_exception& ex) {
                            std::cerr << ex.what() << std::endl;
-                           switch(rxcurl::errorclassfrom(ex)) {
-                               case rxcurl::errorcodeclass::TcpRetry:
+                           switch(utils::errorclassfrom(ex)) {
+                               case utils::errorcodeclass::TcpRetry:
                                    std::cerr << "reconnecting after TCP error" << std::endl;
                                    return rxcpp::observable<>::empty<std::string>();
-                               case rxcurl::errorcodeclass::ErrorRetry:
+                               case utils::errorcodeclass::ErrorRetry:
                                    std::cerr << "error code (" << ex.code() << ") - ";
-                               case rxcurl::errorcodeclass::StatusRetry:
+                               case utils::errorcodeclass::StatusRetry:
                                    std::cerr << "http status (" << ex.httpStatus() << ") - waiting to retry.." << std::endl;
                                    return rxcpp::observable<>::timer(std::chrono::seconds(5), tweetthread) | stringandignore();
-                               case rxcurl::errorcodeclass::RateLimited:
+                               case utils::errorcodeclass::RateLimited:
                                    std::cerr << "rate limited - waiting to retry.." << std::endl;
                                    return rxcpp::observable<>::timer(std::chrono::minutes(1), tweetthread) | stringandignore();
-                               case rxcurl::errorcodeclass::Invalid:
+                               case utils::errorcodeclass::Invalid:
                                    std::cerr << "invalid request - propagate" << std::endl;
                                default:
                                    std::cerr << "unrecognized error - propagate" << std::endl;
@@ -57,7 +57,7 @@ namespace rx::twitter {
         };
     }
 
-    rxcpp::observable<std::string> request(rxcpp::observe_on_one_worker tweetthread, rxcurl::rxcurl factory,
+    rxcpp::observable<std::string> request(rxcpp::observe_on_one_worker tweetthread, utils::rxcurl factory,
                                            std::string URL, std::string method,
                                            std::string CONS_KEY, std::string CONS_SEC,
                                            std::string ATOK_KEY, std::string ATOK_SEC) {
@@ -78,8 +78,8 @@ namespace rx::twitter {
 
         std::cerr << "start twitter stream request" << std::endl;
 
-        return factory.create(rxcurl::http_request{url, method, {}, {}}) |
-               rxcpp::rxo::map([](rxcurl::http_response r) {
+        return factory.create(utils::http_request{url, method, {}, {}}) |
+               rxcpp::rxo::map([](utils::http_response r) {
                    return r.body.chunks;
                }) |
                rxcpp::operators::finally([]() { std::cerr << "end twitter stream request" << std::endl; }) |
