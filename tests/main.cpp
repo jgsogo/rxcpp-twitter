@@ -6,6 +6,7 @@
 #include "logger_sink.h"
 
 int main( int argc, char* argv[] ) {
+    // Capture the logging, some tests need to use it to check some behaviours
     auto& oss = get_ostream_sink();
     auto ostream_sink = std::make_shared<spdlog::sinks::ostream_sink_mt>(oss);
     ostream_sink->set_pattern("[ostream] %v");
