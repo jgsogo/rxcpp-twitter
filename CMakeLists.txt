@@ -13,6 +13,7 @@ add_subdirectory(src)
 
 if(BUILD_TESTS)
     message("Building tests")
+    enable_testing()
     add_subdirectory(tests)
 endif()
 

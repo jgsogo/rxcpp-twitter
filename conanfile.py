@@ -38,6 +38,7 @@ class RxcppTwitter(ConanFile):
         self.requires("oauth/1.0.3@jgsogo/stable")
         self.requires("jsonformoderncpp/3.6.1@vthiery/stable")
         self.requires("range-v3/0.5.0@ericniebler/stable")
+        self.requires("spdlog/1.3.1@bincrafters/stable")
         if self.options.build_tests:
             self.requires("Catch2/2.7.2@catchorg/stable")
 
@@ -48,7 +49,6 @@ class RxcppTwitter(ConanFile):
         if self.options.build_tests:
             catch2_path = os.path.join(self.deps_cpp_info["Catch2"].rootpath, "lib", "cmake", "Catch2")
             cmake.definitions["CMAKE_MODULE_PATH"] = ";".join([cmake.definitions["CMAKE_MODULE_PATH"], catch2_path])
-            cmake.definitions["DATA_PATH"] = os.path.abspath(os.path.join("tests", "data"))
         cmake.configure()
         return cmake
 

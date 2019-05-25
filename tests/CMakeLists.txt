@@ -16,9 +16,12 @@ target_include_directories(tests
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/../include/>
         $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}>)
 
+set(DATA_PATH "${CMAKE_CURRENT_SOURCE_DIR}/data")
 message(STATUS "Tests will use DATA_PATH: ${DATA_PATH}")
 configure_file(data.h.in data.h @ONLY)
 
 include(CTest)
 include(Catch)
 catch_discover_tests(tests)
+
+
