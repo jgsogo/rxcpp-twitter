@@ -1,11 +1,11 @@
 
-#include "rxcpp/twitter/tweet.h"
+#include "rx/twitter/tweet.h"
 
 #include <optional>
 #include <spdlog/spdlog.h>
 
 #include "lazy.h"
-#include "rxcpp/twitter/logger.h"
+#include "rx/twitter/logger.h"
 
 static auto logger = rx::twitter::get_logger();
 

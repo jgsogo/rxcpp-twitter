@@ -2,7 +2,7 @@
 #include <fstream>
 
 #include "catch2/catch.hpp"
-#include "rxcpp/twitter/tweet.h"
+#include "rx/twitter/tweet.h"
 
 #include "data.h"
 #include "logger_sink.h"
