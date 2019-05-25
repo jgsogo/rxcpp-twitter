@@ -1,0 +1,7 @@
+
+// #include <experimental/filesystem>
+
+// constexpr auto data_path = std::filesystem::path("@DATA_PATH@")
+
+constexpr auto data_path = "@DATA_PATH@";
+constexpr auto single_tweet = "@DATA_PATH@/single_tweet.json";
