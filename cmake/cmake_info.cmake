@@ -1,0 +1,14 @@
+# Dumps information about the current build
+
+message(STATUS ">>>> Compiler, system and options")
+message(STATUS "  - CMAKE_SYSTEM: ${CMAKE_SYSTEM}")
+message(STATUS "  - CMAKE_SYSTEM_NAME: ${CMAKE_SYSTEM_NAME}")
+message(STATUS "  - CMAKE_SYSTEM_VERSION: ${CMAKE_SYSTEM_VERSION}")
+
+message(STATUS "  - CMAKE_C_FLAGS: ${CMAKE_C_FLAGS}")
+message(STATUS "  - CMAKE_CXX_FLAGS: ${CMAKE_CXX_FLAGS}")
+message(STATUS "  - CMAKE_BUILD_TYPE: ${CMAKE_BUILD_TYPE}")
+message(STATUS "  - BUILD_SHARED_LIBS: ${BUILD_SHARED_LIBS}")
+message(STATUS "  - CMAKE_C_COMPILER: ${CMAKE_C_COMPILER}")
+message(STATUS "  - CMAKE_CXX_COMPILER: ${CMAKE_CXX_COMPILER}")
+message(STATUS "  - BUILD_SHARED_LIBS: ${BUILD_SHARED_LIBS}")
