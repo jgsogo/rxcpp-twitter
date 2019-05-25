@@ -2,7 +2,7 @@
 #include <catch2/catch.hpp>
 #include <spdlog/sinks/ostream_sink.h>
 
-#include "rx/twitter/logger.h"
+#include "rx/utils/logger.h"
 #include "logger_sink.h"
 
 int main( int argc, char* argv[] ) {

@@ -5,7 +5,7 @@
 #include <spdlog/spdlog.h>
 
 #include "lazy.h"
-#include "rx/twitter/logger.h"
+#include "rx/utils/logger.h"
 
 static auto logger = rx::twitter::get_logger();
 
