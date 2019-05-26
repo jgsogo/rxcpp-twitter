@@ -4,7 +4,7 @@
 #include <optional>
 #include <spdlog/spdlog.h>
 
-#include "lazy.h"
+#include "rx/utils/lazy.h"
 #include "rx/utils/logger.h"
 
 static auto logger = rx::utils::get_logger();
