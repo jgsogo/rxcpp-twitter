@@ -5,7 +5,7 @@
 
 namespace rx::utils {
 
-    static const std::string logger_name = "rx_twitter";
+    static const std::string logger_name = "rx.twitter";
 
     std::shared_ptr<spdlog::logger> get_logger() {
         static std::shared_ptr<spdlog::logger> logger = spdlog::get(logger_name);
