@@ -7,6 +7,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 option(BUILD_TESTS "Build ${project} unit tests" OFF)
 option(BUILD_EXAMPLES "Build ${project} examples" OFF)
 
+include(GenerateExportHeader)
 include("${CMAKE_CURRENT_SOURCE_DIR}/cmake/cmake_info.cmake" OPTIONAL)
 
 add_subdirectory(src)

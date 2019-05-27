@@ -16,5 +16,8 @@ target_link_libraries(utils
 target_include_directories(utils
     PUBLIC
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/../../include/>
+        $<BUILD_INTERFACE:${CMAKE_BINARY_DIR}>
         $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>)
 target_compile_options(utils PRIVATE -Werror)
+
+generate_export_header(utils EXPORT_FILE_NAME ${CMAKE_BINARY_DIR}/exports/utils_export.h)

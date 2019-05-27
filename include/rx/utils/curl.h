@@ -1,13 +1,14 @@
 
 #pragma once
 
+#include "exports/utils_export.h"
 #include <curl/curl.h>
 #include <rxcpp/rx.hpp>
 
 
 namespace rx::utils {
 
-    struct rxcurl_state
+    struct UTILS_EXPORT rxcurl_state
     {
         rxcurl_state();
         rxcurl_state(const rxcurl_state&) = delete;
@@ -30,7 +31,7 @@ namespace rx::utils {
         std::string body;
     };
 
-    struct http_state
+    struct UTILS_EXPORT http_state
     {
         explicit http_state(std::shared_ptr<rxcurl_state> m, http_request r);
         http_state(const http_state&) = delete;
@@ -52,7 +53,7 @@ namespace rx::utils {
         std::vector<std::string> strings;
     };
 
-    struct http_exception : std::runtime_error
+    struct UTILS_EXPORT http_exception : std::runtime_error
     {
         explicit http_exception(const std::shared_ptr<http_state>& s);
 
@@ -68,7 +69,7 @@ namespace rx::utils {
         rxcpp::observable<std::string> complete;
     };
 
-    struct http_response
+    struct UTILS_EXPORT http_response
     {
         const http_request request;
         http_body body;
@@ -79,15 +80,15 @@ namespace rx::utils {
         std::shared_ptr<http_state> state;
     };
 
-    size_t rxcurlhttpCallback(char* ptr, size_t size, size_t nmemb, rxcpp::subscriber<std::string>* out);
+    UTILS_EXPORT size_t rxcurlhttpCallback(char* ptr, size_t size, size_t nmemb, rxcpp::subscriber<std::string>* out);
 
-    struct rxcurl
+    struct UTILS_EXPORT rxcurl
     {
         std::shared_ptr<rxcurl_state> state;
         rxcpp::observable<http_response> create(http_request request) const;
     };
 
-    rxcurl create_rxcurl();
+    UTILS_EXPORT rxcurl create_rxcurl();
 
     enum class errorcodeclass {
         Invalid,
@@ -97,5 +98,5 @@ namespace rx::utils {
         RateLimited
     };
 
-    errorcodeclass errorclassfrom(const http_exception& ex);
+    UTILS_EXPORT errorcodeclass errorclassfrom(const http_exception& ex);
 }

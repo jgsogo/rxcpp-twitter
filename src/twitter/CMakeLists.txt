@@ -19,5 +19,8 @@ target_link_libraries(twitter
 target_include_directories(twitter
     PUBLIC
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/../../include/>
+        $<BUILD_INTERFACE:${CMAKE_BINARY_DIR}>
         $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>)
 target_compile_options(twitter PRIVATE -Werror)
+
+generate_export_header(twitter EXPORT_FILE_NAME ${CMAKE_BINARY_DIR}/exports/twitter_export.h)

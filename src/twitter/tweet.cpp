@@ -22,7 +22,7 @@ namespace rx::twitter {
 
     Tweet::Tweet(const Tweet& tw) : pImpl{std::make_unique<Impl>(tw.pImpl->tweet)} {}
 
-    Tweet::Tweet(Tweet&& tw) : pImpl(std::move(tw.pImpl)) {}
+    Tweet::Tweet(Tweet&& tw) noexcept : pImpl(std::move(tw.pImpl)) {}
 
     Tweet& Tweet::operator=(Tweet tw) {
         pImpl = std::move(tw.pImpl);

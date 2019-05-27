@@ -1,6 +1,7 @@
 
 #pragma once
 
+#include "exports/twitter_export.h"
 #include <string>
 #include <string_view>
 
@@ -10,10 +11,10 @@
 namespace rx::twitter {
 
     // Contains the information from a single tweet
-    class Tweet {
+    class TWITTER_EXPORT Tweet {
     public:
         Tweet(const Tweet&);
-        Tweet(Tweet&&); // = default;
+        Tweet(Tweet&&) noexcept; // = default;
         Tweet& operator=(Tweet);
 
         static Tweet create(nlohmann::json tweet);
