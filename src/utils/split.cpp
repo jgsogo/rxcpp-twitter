@@ -1,9 +1,9 @@
 
-#include "rx/utils/split.h"
+#include "utils/split.h"
 
 #include <regex>
 
-namespace rx::utils {
+namespace utils {
 
     std::vector<std::string> split(std::string s, std::string d, Split m) {
         std::regex delim(d);

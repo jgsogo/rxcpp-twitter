@@ -1,7 +1,7 @@
 
 #pragma once
 
-#include "rx/twitter/twitter_export.h"
+#include "rx/twitter/rx_twitter_export.h"
 #include <string>
 #include <string_view>
 
@@ -11,7 +11,7 @@
 namespace rx::twitter {
 
     // Contains the information from a single tweet
-    class TWITTER_EXPORT Tweet {
+    class RX_TWITTER_EXPORT Tweet {
     public:
         Tweet(const Tweet&);
         Tweet(Tweet&&) noexcept; // = default;

@@ -1,7 +1,7 @@
 
 #pragma once
 
-#include "rx/twitter/twitter_export.h"
+#include "rx/twitter/rx_twitter_export.h"
 #include <rxcpp/rx.hpp>
 
 #include "rx/twitter/tweet.h"
@@ -18,7 +18,7 @@ namespace rx::twitter {
         rxcpp::observable<parseerror> errors;
     };
 
-    TWITTER_EXPORT std::function<rxcpp::observable<parsedtweets>(rxcpp::observable<std::string>)>
+    RX_TWITTER_EXPORT std::function<rxcpp::observable<parsedtweets>(rxcpp::observable<std::string>)>
     parse(rxcpp::observe_on_one_worker worker, rxcpp::observe_on_one_worker tweetthread);
 
 

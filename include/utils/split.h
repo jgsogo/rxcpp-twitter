@@ -1,12 +1,12 @@
 
 #pragma once
 
-#include "rx/utils/utils_export.h"
+#include "utils/utils_export.h"
 
 #include <vector>
 #include <string>
 
-namespace rx::utils {
+namespace utils {
     enum class Split {
         KeepDelimiter,
         RemoveDelimiter,

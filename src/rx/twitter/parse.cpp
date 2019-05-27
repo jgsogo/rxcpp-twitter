@@ -1,7 +1,7 @@
 
 #include "rx/twitter/parse.h"
 
-#include "rx/utils/split.h"
+#include "utils/split.h"
 
 namespace rx::twitter {
 
