@@ -1,5 +1,5 @@
 
-function(create_logger_files EXPORT_FILENAME)
+function(create_logger_files EXPORT_FILENAME EXPORT_MACRO)
     file(RELATIVE_PATH REL_PATH ${PROJECT_SOURCE_DIR} ${CMAKE_CURRENT_SOURCE_DIR})
 
     get_filename_component(EXPORT_FILENAME ${EXPORT_FILENAME} NAME)

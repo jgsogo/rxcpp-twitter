@@ -4,7 +4,7 @@
 #include <optional>
 #include <spdlog/spdlog.h>
 
-#include "rx/utils/lazy.h"
+#include "utils/lazy.h"
 #include "rx/twitter/logger.h"
 
 

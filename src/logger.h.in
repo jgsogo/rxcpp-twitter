@@ -9,7 +9,7 @@
 
 namespace @NAMESPACE@ {
 
-    std::shared_ptr<spdlog::logger> get_logger();
-    std::shared_ptr<spdlog::logger> setup_logger(std::vector<spdlog::sink_ptr>& sinks);
+    @EXPORT_MACRO@ std::shared_ptr<spdlog::logger> get_logger();
+    @EXPORT_MACRO@ std::shared_ptr<spdlog::logger> setup_logger(std::vector<spdlog::sink_ptr>& sinks);
     
 }

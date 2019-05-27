@@ -27,4 +27,4 @@ target_compile_options(twitter PRIVATE -Werror)
 
 # Dynamically generated files
 generate_export_header(twitter EXPORT_FILE_NAME ${CMAKE_CURRENT_BINARY_DIR}/twitter_export.h)
-create_logger_files(${CMAKE_CURRENT_BINARY_DIR}/twitter_export.h)
+create_logger_files(${CMAKE_CURRENT_BINARY_DIR}/twitter_export.h TWITTER_EXPORT)

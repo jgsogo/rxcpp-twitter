@@ -24,4 +24,4 @@ target_compile_options(utils PRIVATE -Werror)
 
 # Dynamically generated files
 generate_export_header(utils EXPORT_FILE_NAME ${CMAKE_CURRENT_BINARY_DIR}/utils_export.h)
-create_logger_files(${CMAKE_CURRENT_BINARY_DIR}/utils_export.h)
+create_logger_files(${CMAKE_CURRENT_BINARY_DIR}/utils_export.h UTILS_EXPORT)
