@@ -5,7 +5,7 @@ find_package(spdlog REQUIRED)
 find_package(oauth REQUIRED)
 
 set(SOURCES logger.cpp split.cpp curl.cpp)
-set(HEADERS ../../include/rx/utils/curl.h)
+set(HEADERS ../../../include/rx/utils/curl.h)
 
 add_library(utils ${SOURCES} ${HEADERS})
 target_link_libraries(utils
@@ -15,9 +15,11 @@ target_link_libraries(utils
         oauth::oauth)
 target_include_directories(utils
     PUBLIC
-        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/../../include/>
-        $<BUILD_INTERFACE:${CMAKE_BINARY_DIR}>
+        $<BUILD_INTERFACE:${CMAKE_SOURCE_DIR}/include/>
+        $<BUILD_INTERFACE:${CMAKE_BINARY_DIR}/src/>
         $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>)
 target_compile_options(utils PRIVATE -Werror)
 
-generate_export_header(utils EXPORT_FILE_NAME ${CMAKE_BINARY_DIR}/exports/utils_export.h)
+generate_export_header(utils EXPORT_FILE_NAME ${CMAKE_CURRENT_BINARY_DIR}/utils_export.h)
+
+create_logger_files(${CMAKE_CURRENT_BINARY_DIR}/utils_export.h)

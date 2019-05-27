@@ -1,7 +1,7 @@
 
 #pragma once
 
-#include "exports/utils_export.h"
+#include "rx/utils/utils_export.h"
 
 #include <vector>
 #include <string>

@@ -1,11 +1,11 @@
 
-#include "rx/utils/logger.h"
+#include "@INCLUDE_PATH@/logger.h"
 
 #include <spdlog/sinks/stdout_color_sinks.h>
 
-namespace rx::utils {
+namespace @NAMESPACE@ {
 
-    static const std::string logger_name = "rx.twitter";
+    static const std::string logger_name = "@LOGGER_NAME@";
 
     std::shared_ptr<spdlog::logger> get_logger() {
         static std::shared_ptr<spdlog::logger> logger = spdlog::get(logger_name);

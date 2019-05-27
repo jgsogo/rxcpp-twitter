@@ -5,11 +5,13 @@
 #include <spdlog/spdlog.h>
 
 #include "rx/utils/lazy.h"
-#include "rx/utils/logger.h"
+#include "rx/twitter/logger.h"
 
-static auto logger = rx::utils::get_logger();
+
 
 namespace rx::twitter {
+
+    static auto logger = get_logger();
 
     struct Tweet::Impl {
         explicit Impl(nlohmann::json tw) : tweet{std::move(tw)} {}

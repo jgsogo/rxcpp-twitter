@@ -1,7 +1,7 @@
 
 #pragma once
 
-#include "exports/twitter_export.h"
+#include "rx/twitter/twitter_export.h"
 #include <rxcpp/rx.hpp>
 
 #include "rx/twitter/tweet.h"

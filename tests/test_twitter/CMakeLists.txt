@@ -10,7 +10,7 @@ target_link_libraries(test_twitter
         Catch2::Catch2)
 target_include_directories(test_twitter
     PUBLIC
-        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/../../include/>
+        $<BUILD_INTERFACE:${CMAKE_SOURCE_DIR}/include/>
         $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/..>)
 
 # In order to add tests, we can use the common 'add_test' or the Catch2 magic below
